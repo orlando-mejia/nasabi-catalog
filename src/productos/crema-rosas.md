@@ -1,7 +1,7 @@
 ---
 title: "Crema de Rosas 🌹"
 price: "250"
-image: "/img/rosas.jpg"
+image: "/img/crema-rosas.png"
 whatsapp_text: "Hola, me interesa la Crema de Rosas"
 tags: ["cremas"]
 ---

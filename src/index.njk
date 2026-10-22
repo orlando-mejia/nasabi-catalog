@@ -21,11 +21,40 @@ layout: base.njk
             <div class="flex overflow-x-auto hide-scrollbar gap-3 pb-1">
                 <a href="#cremas" class="whitespace-nowrap px-5 py-2 rounded-full bg-nasabi-brown text-white text-sm font-semibold hover:bg-opacity-90 transition">Cremas Corporales</a>
                 <a href="#kits" class="whitespace-nowrap px-5 py-2 rounded-full bg-white border border-gray-300 text-gray-700 text-sm font-semibold hover:bg-gray-100 hover:border-nasabi-green transition">Kits Faciales</a>
+                <a href="#jabones" class="whitespace-nowrap px-5 py-2 rounded-full bg-white border border-gray-300 text-gray-700 text-sm font-semibold hover:bg-gray-100 hover:border-nasabi-green transition">Jabones</a>
             </div>
         </div>
     </div>
 
     <div class="max-w-5xl mx-auto px-4">
+        <!-- Sección:Jabones -->
+        <div id="jabones" class="mb-16">
+            <div class="flex items-center gap-3 mb-6">
+                <h2 class="text-2xl font-bold text-nasabi-brown">Jabones</h2>
+                <div class="h-1 flex-grow bg-nasabi-yellow rounded"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {% for producto in collections.jabones %}
+                <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col hover:shadow-md transition">
+                    <div class="h-56 bg-gray-100 flex items-center justify-center">
+                        <img src="{{ producto.data.image }}" alt="{{ producto.data.title }}" class="object-cover w-full h-full">
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <h3 class="text-xl font-bold text-nasabi-brown mb-2">{{ producto.data.title }}</h3>
+                        <div class="text-sm text-gray-600 mb-4 flex-grow">{{ producto.templateContent | safe }}</div>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="text-2xl font-bold text-nasabi-green">C$ {{ producto.data.price }}</span>
+                        </div>
+                        <a href="https://wa.me/50575348908?text={{ producto.data.whatsapp_text | urlencode }}" target="_blank" class="block text-center bg-nasabi-brown text-white py-2.5 rounded-lg font-semibold mt-auto hover:bg-opacity-90 transition">
+                            Pedir por WhatsApp
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
         
         <!-- Sección: Cremas Corporales -->
         <div id="cremas" class="mb-16">
